@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PersonList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Persons>
+    <Person>
+      <Name>Goldy</Name>
+      <Ticket xsi:type="FirstClassTicket" />
+    </Person>
+    <Person />
+  </Persons>
+</PersonList>
