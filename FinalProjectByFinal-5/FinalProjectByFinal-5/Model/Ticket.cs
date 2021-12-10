@@ -15,6 +15,11 @@ namespace FinalProjectByFinal_5.Model
         private int age;
         private string date;
         private string creditcard;
+        private string concealedCreditCard;
+        private bool freeMeal;
+        private bool wheelChair;
+        private bool freeReturns;
+
 
         public string PersonName { get => personName; set => personName = value; }
         public string Passport { get => passport; set => passport = value; }
@@ -23,10 +28,14 @@ namespace FinalProjectByFinal_5.Model
         public int Age { get => age; set => age = value; }
         public string Date { get => date; set => date = value; }
         public string Creditcard { get => creditcard; set => creditcard = value; }
+        public string ConcealedCreditCard { get => $"{creditcard.Substring(0,1)}XXCHANGEXXXXXX{creditcard.Substring(0,2)}"; set => concealedCreditCard = value; }
+        public bool FreeMeal { get => freeMeal; set => freeMeal = value; }
+        public bool WheelChair { get => wheelChair; set => wheelChair = value; }
+        public bool FreeReturns { get => freeReturns; set => freeReturns = value; }
 
         public virtual decimal GetTicketPrices(string destination)
         {
-            throw new NotImplementedException();
+            return 0m;
         }
     }
 }

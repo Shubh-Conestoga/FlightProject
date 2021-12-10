@@ -56,85 +56,94 @@
         </Grid.ColumnDefinitions>
 
 
-        <Border BorderBrush="Black" BorderThickness="2" Background="Black" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3">
+        <Border BorderBrush="Black" BorderThickness="2" Background="Black" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3">
             <Label Content="Enter Client Details" Foreground="White" HorizontalAlignment="Center"/>
         </Border>
 
-        <Label Content="Destination:" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <ComboBox x:Name="listDestination"  ItemsSource="{Binding Path=Destinations}" Grid.ColumnSpan="2" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center">
+        <Label Content="Destination:" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <ComboBox x:Name="listDestination" Grid.ColumnSpan="2" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" SelectionChanged="destinationChanged" >
 
         </ComboBox>
 
-        <Label Content="Available Dates:" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <ComboBox x:Name="listDates" Grid.ColumnSpan="2" Grid.Row="3" Grid.Column="2"  VerticalAlignment="Center">
+        <Label Content="Price :" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" IsEnabled="False" x:Name="txtPrices" HorizontalContentAlignment="Center">
+            <TextBox.Text>
+                4500
+            </TextBox.Text>
+        </TextBox>
+
+        <Label Content="Available Dates:" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <ComboBox x:Name="listDates" SelectedIndex="0" ItemsSource="{Binding Path=AvailableDates}" Grid.ColumnSpan="2" Grid.Row="2" Grid.Column="2"  VerticalAlignment="Center">
 
         </ComboBox>
 
-        <Label Content="Person Name:" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="txtPhotos" Grid.Row="4" Grid.Column="2"  VerticalAlignment="Center" VerticalContentAlignment="Center" Grid.ColumnSpan="2"
-                 >
-
-
+        <Label Content="Person Name:" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtPersonName" Grid.Row="6" Grid.Column="2"  VerticalAlignment="Center" VerticalContentAlignment="Center" Grid.ColumnSpan="2">
         </TextBox>
 
-        <Label Content="Passport:" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="txtDays" Grid.Row="5" Grid.Column="2"  VerticalAlignment="Center" VerticalContentAlignment="Center" Grid.ColumnSpan="2"
-               
-                 >
+        <Label Content="Passport:" Grid.Row="7" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtPassport" Grid.Row="7" Grid.Column="2"  VerticalAlignment="Center" VerticalContentAlignment="Center" Grid.ColumnSpan="2">
         </TextBox>
 
-        <Label Content="Credit Card(16 digits):" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <TextBox x:Name="txtCreditCard" VerticalAlignment="Center" Grid.Row="6" Grid.Column="2"  Grid.ColumnSpan="2" VerticalContentAlignment="Center"
-                 >
+        <Label Content="Creditcard(16):" Grid.Row="8" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBox x:Name="txtCreditCard" VerticalAlignment="Center" Grid.Row="8" Grid.Column="2"  Grid.ColumnSpan="2" VerticalContentAlignment="Center">
             
         </TextBox>
 
-        <Label Content="Age:" Grid.Row="7" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <TextBox x:Name="txtAge" VerticalAlignment="Center" Grid.Row="7" Grid.Column="2"  Grid.ColumnSpan="2" VerticalContentAlignment="Center"
-                 >
+        <Label Content="Age:" Grid.Row="9" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBox x:Name="txtAge" VerticalAlignment="Center" Grid.Row="9" Grid.Column="2"  Grid.ColumnSpan="2" VerticalContentAlignment="Center">
 
         </TextBox>
 
 
 
-        <Label Content="Ticket Type:" Grid.Row="8" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" />
-        <StackPanel Orientation="Vertical" Grid.Column="2" Grid.Row="8" Grid.RowSpan="2" Grid.ColumnSpan="1">
-            <RadioButton VerticalContentAlignment="Center" GroupName="clientType" x:Name="radioClient" IsChecked="True" Content="First Class"  />
-            <RadioButton VerticalContentAlignment="Center" GroupName="clientType" x:Name="radioOccasonal" Content="Business Class" />
-            <RadioButton VerticalContentAlignment="Center" GroupName="clientType" x:Name="radioOfficial" Content="Economy Class" />
+        <Label Content="Ticket Type:" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <StackPanel Orientation="Vertical" Grid.Column="2" Grid.Row="3" Grid.RowSpan="2" Grid.ColumnSpan="2">
+            <RadioButton VerticalContentAlignment="Center" GroupName="clientType" x:Name="radioFirstClass" Content="First Class" Checked="firstClassSelected" />
+            <RadioButton VerticalContentAlignment="Center" GroupName="clientType" x:Name="radioBusinessClass" Content="Business Class" Checked="businessClassSelected" />
+            <RadioButton VerticalContentAlignment="Center" GroupName="clientType" x:Name="radioEconomyClass" Content="Economy Class" Checked="economyClassSelected" />
         </StackPanel>
 
-        <Label Content="Requirements:" Grid.Row="10" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Label Content="Extra Services:" Grid.Row="10" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" />
         <StackPanel  Grid.Row="10" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="2">
             <CheckBox VerticalContentAlignment="Center" Content="Free Meal" x:Name="chkFreemeal"/>
             <CheckBox VerticalContentAlignment="Center" Content="Wheel Chair" Grid.Row="9" Grid.Column="2" x:Name="chkwhlchair"/>
             <CheckBox VerticalContentAlignment="Center" Content="Free Returns" Grid.Row="10" Grid.Column="2" x:Name="chkReturn"/>
         </StackPanel>
 
-        <Button x:Name="btnSubmit" Content="Submit" Grid.Column="1" Grid.Row="12" Grid.ColumnSpan="3" />
+        <Button x:Name="btnSubmit" Content="Submit" Grid.Column="1" Grid.Row="12" Grid.ColumnSpan="3" Click="btnSubmitClicked"/>
 
         <Border Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="3" BorderThickness="3,3,3,0" BorderBrush="Black" Background="Black">
             <Label Content="Output" HorizontalAlignment="Center" Foreground="White"/>
         </Border>
         <Border  Grid.Column="5" Grid.Row="2" Grid.ColumnSpan="3" Grid.RowSpan="7" BorderBrush="Black" BorderThickness="3" >
             <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-                <DataGrid x:Name="myDataGrid" Width="Auto" AutoGenerateColumns="False" CanUserDeleteRows="True" CanUserAddRows="False">
+                <DataGrid x:Name="myDataGrid" ItemsSource="{Binding Path=BookingsObservable}" Width="Auto" AutoGenerateColumns="False" CanUserDeleteRows="False" CanUserAddRows="False" >
                     <DataGrid.RowStyle>
                         <Style TargetType="DataGridRow">
                             <Setter Property="Background" Value="AliceBlue"/>
                         </Style>
                     </DataGrid.RowStyle>
                     <DataGrid.Columns>
-                    
+                        <DataGridTextColumn Header="Date" Binding="{Binding Path=Date}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Name" Binding="{Binding Path=PersonName}"/>
+                        <DataGridTextColumn Header="Passport" Binding="{Binding Path=Passport}"/>
+                        <DataGridTextColumn Header="Price" Binding="{Binding Path=Price}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Destination" Binding="{Binding Path=Destination}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Age" Binding="{Binding Path=Age}"/>
+                        <DataGridTextColumn Header="Creditcard" Binding="{Binding Path=ConcealedCreditCard}" IsReadOnly="True"/>
+                        <DataGridCheckBoxColumn Header="Free Meal" Binding="{Binding Path=FreeMeal}"/>
+                        <DataGridCheckBoxColumn Header="Wheelchair" Binding="{Binding Path=WheelChair}"/>
+                        <DataGridCheckBoxColumn Header="Free Returns" Binding="{Binding Path=FreeReturns}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </ScrollViewer>
         </Border>
 
-        <Label Content="Search By TimeSlot (10:00 AM-7:00 PM) [Blank will give all data]:" Grid.Row="9" Grid.Column="5" Grid.ColumnSpan="3" VerticalAlignment="Bottom"/>
-        <TextBox x:Name="searchText" Grid.Row="10" Grid.Column="5" Grid.ColumnSpan="2" VerticalAlignment="Top"/>
-        <Button x:Name="btnSearch" Content="Search"  Grid.Row="10" Grid.Column="7" Grid.ColumnSpan="1" VerticalAlignment="Top"/>
-        <Button x:Name="btnDisplay" Content="Display"  Grid.Row="11" Grid.Column="5" Grid.ColumnSpan="3" />
+        <Label Content="Search By Destination [Blank will give all data]:" Grid.Row="9" Grid.Column="5" Grid.ColumnSpan="3" VerticalAlignment="Bottom"/>
+        <TextBox x:Name="txtSearch" Grid.Row="10" Grid.Column="5" Grid.ColumnSpan="2" VerticalAlignment="Top"/>
+        <Button x:Name="btnSearch" Content="Search"  Grid.Row="10" Grid.Column="7" Grid.ColumnSpan="1" VerticalAlignment="Top" Click="searchBtnClicked" />
+        <Button x:Name="btnDisplay" Content="Display"  Grid.Row="11" Grid.Column="5" Grid.ColumnSpan="3" Click="displayBtnClicked" />
 
     </Grid>
 </Window>

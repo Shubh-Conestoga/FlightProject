@@ -14,20 +14,21 @@ namespace FinalProjectByFinal_5.Model
     [XmlInclude(typeof(EconomyTicket))]
     [XmlInclude(typeof(FirstClassTicket))]
     [XmlInclude(typeof(BusinessTicket))]
-    class TicketList : IEnumerable
+    public class TicketList 
     {
         private List<Ticket> tickets = null;
 
         //indexer
-        public Ticket this[int i] { get => tickets[i];set => tickets.Add(value); }
+        public Ticket this[int i] { get => tickets[i]; set => tickets.Add(value); }
 
         public TicketList()
         {
             Tickets = new List<Ticket>();
         }
+
         //for saving data in xml file
-        [XmlArray("Bookings")]
-        [XmlArrayItem("Booking",typeof(Ticket))]
+        [XmlArray("Tickets")]
+        [XmlArrayItem("Ticket")]
         public List<Ticket> Tickets { get => tickets; set => tickets = value; }
         //to add new booking
         public void Add(Ticket ticket)
@@ -39,10 +40,9 @@ namespace FinalProjectByFinal_5.Model
         {
             tickets.Remove(ticket);
         }
-
-        public IEnumerator GetEnumerator()
+        public void Clear()
         {
-            return tickets.GetEnumerator();
+            tickets.Clear();
         }
     }
 }

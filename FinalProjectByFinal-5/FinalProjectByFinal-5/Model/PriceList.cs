@@ -9,8 +9,7 @@ namespace FinalProjectByFinal_5.Model
 {
     class PriceList
     {
-        private static PriceList priceList=null;
-        private Dictionary<string, decimal> ticketPriceList;
+        private Dictionary<string, decimal> ticketPriceList = new Dictionary<string, decimal>();
 
         public PriceList()
         {
@@ -21,11 +20,6 @@ namespace FinalProjectByFinal_5.Model
                 ticketPriceList.Add(destination.ToLower().Trim(),price*4500);
                 price += 0.01m;
             }
-        }
-
-        public PriceList GetPriceList()
-        {
-            return priceList;
         }
 
         public decimal GetPriceOfDestination(string destination)

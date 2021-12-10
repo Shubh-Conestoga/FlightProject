@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FinalProjectByFinal_5.Model
 {
-    class BusinessTicket: Ticket
+    public class BusinessTicket: Ticket
     {
         public override decimal GetTicketPrices(string destination)
         {

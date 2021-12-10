@@ -20,10 +20,7 @@ namespace FinalProjectByFinal_5.Model
         public string Passport { get => passport; set => passport = value; }
         public string ConcealedCreditCard { get => $"{creditcard.Substring(0, 4)}XXXXXXXX{ creditcard.Substring(11, 4)}"; }
         public string Creditcard { get => creditcard; set => creditcard = value; }
-
         public string Nationality { get => nationality; set => nationality = value; }
-
-
 
     }
 }
