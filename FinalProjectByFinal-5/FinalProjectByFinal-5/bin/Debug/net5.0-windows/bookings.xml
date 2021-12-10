@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BookingList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Tickets>
+    <Ticket xsi:type="BusinessTicket">
+      <PersonName>Tako</PersonName>
+      <Passport>TT5010</Passport>
+      <Price>540.00</Price>
+      <Destination>Brazil</Destination>
+      <Age>45</Age>
+      <Date>1/12/2021</Date>
+      <Creditcard>1234567897894562</Creditcard>
+      <FreeMeal>true</FreeMeal>
+      <WheelChair>true</WheelChair>
+      <FreeReturns>false</FreeReturns>
+    </Ticket>
+    <Ticket xsi:type="EconomyTicket">
+      <PersonName>Shubh</PersonName>
+      <Passport>PP7894</Passport>
+      <Price>180.00</Price>
+      <Destination>Usa</Destination>
+      <Age>22</Age>
+      <Date>5/12/2021</Date>
+      <Creditcard>7894561234567822</Creditcard>
+      <FreeMeal>true</FreeMeal>
+      <WheelChair>false</WheelChair>
+      <FreeReturns>true</FreeReturns>
+    </Ticket>
+    <Ticket xsi:type="BusinessTicket">
+      <PersonName>Ronak</PersonName>
+      <Passport>PP4564</Passport>
+      <Price>270.00</Price>
+      <Destination>China</Destination>
+      <Age>12</Age>
+      <Date>9/12/2021</Date>
+      <Creditcard>1234567894567896</Creditcard>
+      <FreeMeal>false</FreeMeal>
+      <WheelChair>false</WheelChair>
+      <FreeReturns>true</FreeReturns>
+    </Ticket>
+    <Ticket xsi:type="BusinessTicket">
+      <PersonName>Yook</PersonName>
+      <Passport>PP2313</Passport>
+      <Price>90.00</Price>
+      <Destination>India</Destination>
+      <Age>45</Age>
+      <Date>2/12/2021</Date>
+      <Creditcard>1234567891345678</Creditcard>
+      <FreeMeal>true</FreeMeal>
+      <WheelChair>true</WheelChair>
+      <FreeReturns>false</FreeReturns>
+    </Ticket>
+    <Ticket xsi:type="FirstClassTicket">
+      <PersonName>Tarak</PersonName>
+      <Passport>TT4512</Passport>
+      <Price>135.00</Price>
+      <Destination>India</Destination>
+      <Age>78</Age>
+      <Date>10/12/2021</Date>
+      <Creditcard>7894561231234567</Creditcard>
+      <FreeMeal>false</FreeMeal>
+      <WheelChair>false</WheelChair>
+      <FreeReturns>true</FreeReturns>
+    </Ticket>
+    <Ticket xsi:type="BusinessTicket">
+      <PersonName>Wanda</PersonName>
+      <Passport>WW1234</Passport>
+      <Price>270.00</Price>
+      <Destination>China</Destination>
+      <Age>4</Age>
+      <Date>3/12/2021</Date>
+      <Creditcard>4567894567894565</Creditcard>
+      <FreeMeal>true</FreeMeal>
+      <WheelChair>true</WheelChair>
+      <FreeReturns>false</FreeReturns>
+    </Ticket>
+  </Tickets>
+</BookingList>
