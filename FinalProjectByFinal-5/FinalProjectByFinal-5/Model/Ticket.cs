@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace FinalProjectByFinal_5.Model
 {
@@ -28,7 +29,8 @@ namespace FinalProjectByFinal_5.Model
         public int Age { get => age; set => age = value; }
         public string Date { get => date; set => date = value; }
         public string Creditcard { get => creditcard; set => creditcard = value; }
-        public string ConcealedCreditCard { get => $"{creditcard.Substring(0,1)}XXCHANGEXXXXXX{creditcard.Substring(0,2)}"; set => concealedCreditCard = value; }
+        [XmlIgnore]
+        public string ConcealedCreditCard { get => $"{creditcard.Substring(0,4)}XXXXXXXX{creditcard.Substring(12,4)}"; }
         public bool FreeMeal { get => freeMeal; set => freeMeal = value; }
         public bool WheelChair { get => wheelChair; set => wheelChair = value; }
         public bool FreeReturns { get => freeReturns; set => freeReturns = value; }

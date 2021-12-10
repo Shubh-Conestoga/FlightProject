@@ -8,6 +8,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Window.Resources>
+        <local:AgeConverter x:Key="EighteenAgeConverter"/>
+        <model:Ticket x:Key="Booking"/>
     </Window.Resources>
     <Grid>
         <Grid.Resources>
@@ -78,21 +80,51 @@
         </ComboBox>
 
         <Label Content="Person Name:" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="txtPersonName" Grid.Row="6" Grid.Column="2"  VerticalAlignment="Center" VerticalContentAlignment="Center" Grid.ColumnSpan="2">
+        <TextBox x:Name="txtPersonName" DataContext="{StaticResource Booking}" Grid.Row="6" Grid.Column="2"  VerticalAlignment="Center" VerticalContentAlignment="Center" Grid.ColumnSpan="2"
+                 ToolTip="{Binding ElementName=txtPersonName,Path=(Validation.Errors)[0].ErrorContent}">
+            <TextBox.Text>
+                <Binding Path="PersonName" ValidatesOnNotifyDataErrors="False">
+                    <Binding.ValidationRules>
+                        <local:BookingValidator ValidationFor="name"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
         </TextBox>
 
-        <Label Content="Passport:" Grid.Row="7" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="txtPassport" Grid.Row="7" Grid.Column="2"  VerticalAlignment="Center" VerticalContentAlignment="Center" Grid.ColumnSpan="2">
+        <Label Content="Passport[6 digit]" Grid.Row="7" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtPassport" DataContext="{StaticResource Booking}" Grid.Row="7" Grid.Column="2"  VerticalAlignment="Center" VerticalContentAlignment="Center" Grid.ColumnSpan="2"
+                 ToolTip="{Binding ElementName=txtPassport,Path=(Validation.Errors)[0].ErrorContent}">
+            <TextBox.Text>
+                <Binding Path="Passport" ValidatesOnNotifyDataErrors="False">
+                    <Binding.ValidationRules>
+                        <local:BookingValidator ValidationFor="passport"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
         </TextBox>
 
         <Label Content="Creditcard(16):" Grid.Row="8" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <TextBox x:Name="txtCreditCard" VerticalAlignment="Center" Grid.Row="8" Grid.Column="2"  Grid.ColumnSpan="2" VerticalContentAlignment="Center">
-            
+        <TextBox x:Name="txtCreditCard" DataContext="{StaticResource Booking}" VerticalAlignment="Center" Grid.Row="8" Grid.Column="2"  Grid.ColumnSpan="2" VerticalContentAlignment="Center"
+                 ToolTip="{Binding ElementName=txtCreditCard,Path=(Validation.Errors)[0].ErrorContent}">
+            <TextBox.Text>
+                <Binding Path="Creditcard" ValidatesOnNotifyDataErrors="False">
+                    <Binding.ValidationRules>
+                        <local:BookingValidator ValidationFor="creditcard"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
         </TextBox>
 
-        <Label Content="Age:" Grid.Row="9" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <TextBox x:Name="txtAge" VerticalAlignment="Center" Grid.Row="9" Grid.Column="2"  Grid.ColumnSpan="2" VerticalContentAlignment="Center">
-
+        <Label Content="Age(>0):" Grid.Row="9" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBox x:Name="txtAge" DataContext="{StaticResource Booking}" VerticalAlignment="Center" Grid.Row="9" Grid.Column="2"  Grid.ColumnSpan="2" VerticalContentAlignment="Center"
+                 ToolTip="{Binding ElementName=txtAge,Path=(Validation.Errors)[0].ErrorContent}">
+            <TextBox.Text>
+                <Binding Path="Age" ValidatesOnNotifyDataErrors="False">
+                    <Binding.ValidationRules>
+                        <local:BookingValidator ValidationFor="age"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
         </TextBox>
 
 
@@ -121,7 +153,7 @@
                 <DataGrid x:Name="myDataGrid" ItemsSource="{Binding Path=BookingsObservable}" Width="Auto" AutoGenerateColumns="False" CanUserDeleteRows="False" CanUserAddRows="False" >
                     <DataGrid.RowStyle>
                         <Style TargetType="DataGridRow">
-                            <Setter Property="Background" Value="AliceBlue"/>
+                            <Setter Property="Background" Value="{Binding Path=Age,Converter={StaticResource EighteenAgeConverter}}"/>
                         </Style>
                     </DataGrid.RowStyle>
                     <DataGrid.Columns>

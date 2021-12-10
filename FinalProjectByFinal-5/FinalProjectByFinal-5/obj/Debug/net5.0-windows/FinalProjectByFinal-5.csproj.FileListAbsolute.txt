@@ -19,4 +19,5 @@ D:\College Projects\Software Development Project\FinalAssignment\FinalProjectByF
 D:\College Projects\Software Development Project\FinalAssignment\FinalProjectByFinal-5\FinalProjectByFinal-5\obj\Debug\net5.0-windows\ref\FinalProjectByFinal-5.dll
 D:\College Projects\Software Development Project\FinalAssignment\FinalProjectByFinal-5\FinalProjectByFinal-5\obj\Debug\net5.0-windows\FinalProjectByFinal-5.pdb
 D:\College Projects\Software Development Project\FinalAssignment\FinalProjectByFinal-5\FinalProjectByFinal-5\obj\Debug\net5.0-windows\FinalProjectByFinal-5.genruntimeconfig.cache
+D:\College Projects\Software Development Project\FinalAssignment\FinalProjectByFinal-5\FinalProjectByFinal-5\obj\Debug\net5.0-windows\GeneratedInternalTypeHelper.g.cs
 D:\College Projects\Software Development Project\FinalAssignment\FinalProjectByFinal-5\FinalProjectByFinal-5\obj\Debug\net5.0-windows\FinalProjectByFinal-5.csproj.AssemblyReference.cache

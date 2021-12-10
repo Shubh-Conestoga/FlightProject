@@ -216,61 +216,66 @@ namespace FinalProjectByFinal_5
 
         private void btnSubmitClicked(object sender, RoutedEventArgs e)
         {
-            Ticket ticket = null;
-            if (radioBusinessClass.IsChecked.Value)
+            int age = 0;
+            long creditCard = 0;
+            if ((listDates.SelectedIndex >= 0) && (listDestination.SelectedIndex >= 0) && (txtPersonName.Text.Trim().Length > 0) && (txtPassport.Text.Trim().Length == 6) && (txtCreditCard.Text.Trim().Length == 16) && (int.TryParse(txtAge.Text.Trim(), out age)) && (long.TryParse(txtCreditCard.Text.Trim(), out creditCard)))
             {
-                ticket = new BusinessTicket();
-            }
-            else if (radioEconomyClass.IsChecked.Value)
-            {
-                ticket = new EconomyTicket();
-            }
-            else
-            {
-                ticket = new FirstClassTicket();
-            }
+                Ticket ticket = null;
+                if (radioBusinessClass.IsChecked.Value)
+                {
+                    ticket = new BusinessTicket();
+                }
+                else if (radioEconomyClass.IsChecked.Value)
+                {
+                    ticket = new EconomyTicket();
+                }
+                else
+                {
+                    ticket = new FirstClassTicket();
+                }
 
-            ticket.PersonName = txtPersonName.Text;
-            ticket.Passport = txtPassport.Text;
-            ticket.Destination = listDestination.Text;
-            ticket.Date = listDates.Text;
+                ticket.PersonName = txtPersonName.Text;
+                ticket.Passport = txtPassport.Text;
+                ticket.Destination = listDestination.Text;
+                ticket.Date = listDates.Text;
 
-            ticket.Age = int.Parse(txtAge.Text);
-            ticket.Creditcard = txtCreditCard.Text;
-            ticket.Price = decimal.Parse(txtPrices.Text);
+                ticket.Age = int.Parse(txtAge.Text);
+                ticket.Creditcard = txtCreditCard.Text;
+                ticket.Price = decimal.Parse(txtPrices.Text);
 
-            if (chkFreemeal.IsChecked.Value)
-            {
-                ticket.FreeMeal = true;
-            }
-            else
-            {
-                ticket.FreeMeal = false;
-            }
-            if (chkReturn.IsChecked.Value)
-            {
-                ticket.FreeReturns = true;
-            }
-            else 
-            {
-                ticket.FreeReturns = false;
-            }
-            if (chkwhlchair.IsChecked.Value)
-            {
-                ticket.WheelChair = true;
-            }
-            else
-            {
-                ticket.WheelChair = false;
-            }
+                if (chkFreemeal.IsChecked.Value)
+                {
+                    ticket.FreeMeal = true;
+                }
+                else
+                {
+                    ticket.FreeMeal = false;
+                }
+                if (chkReturn.IsChecked.Value)
+                {
+                    ticket.FreeReturns = true;
+                }
+                else
+                {
+                    ticket.FreeReturns = false;
+                }
+                if (chkwhlchair.IsChecked.Value)
+                {
+                    ticket.WheelChair = true;
+                }
+                else
+                {
+                    ticket.WheelChair = false;
+                }
 
-            bookingsObservable.Add(ticket);
+                bookingsObservable.Add(ticket);
 
-            WriteDataToXML();
-            availableDates.Remove(listDates.Text);
-            listDates.Items.Refresh();
+                WriteDataToXML();
+                availableDates.Remove(listDates.Text);
+                listDates.Items.Refresh();
 
-            ClearField();
+                ClearField();
+            }
         }
 
         void ClearField()
@@ -313,6 +318,7 @@ namespace FinalProjectByFinal_5
         private void displayBtnClicked(object sender, RoutedEventArgs e)
         {
             ReadeDataFromXML();
+            myDataGrid.ItemsSource = bookingsObservable;
         }
     }
 
